@@ -1,0 +1,80 @@
+<svg viewBox="0 0 740 440" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <rect x="0" y="0" width="740" height="440" fill="white"/>
+  <text x="370" y="26" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">
+    gv (PDR) proof runtime vs. multiplier width — original vs. abstracted</text>
+
+  <!-- timeout band (above the 60 s budget line) -->
+  <rect x="80" y="40" width="600" height="18" fill="#f5d0cd"/>
+  <text x="676" y="52" text-anchor="end" font-size="11" fill="#a5281b">TIMEOUT zone (&gt; 60 s budget)</text>
+  <line x1="80" y1="58" x2="680" y2="58" stroke="#c0392b" stroke-width="1" stroke-dasharray="5 3"/>
+
+  <!-- y gridlines + labels (log scale) -->
+  <g stroke="#e0e0e0" stroke-width="1">
+    <line x1="80" y1="40"  x2="680" y2="40"/>
+    <line x1="80" y1="120" x2="680" y2="120"/>
+    <line x1="80" y1="200" x2="680" y2="200"/>
+    <line x1="80" y1="280" x2="680" y2="280"/>
+    <line x1="80" y1="360" x2="680" y2="360"/>
+  </g>
+  <g font-size="11" fill="#666" text-anchor="end">
+    <text x="72" y="44">100 s</text>
+    <text x="72" y="124">10 s</text>
+    <text x="72" y="204">1 s</text>
+    <text x="72" y="284">0.1 s</text>
+    <text x="72" y="364">0.01 s</text>
+  </g>
+  <text x="22" y="200" font-size="13" fill="#444" transform="rotate(-90 22 200)" text-anchor="middle">PDR runtime (log scale)</text>
+
+  <!-- axes -->
+  <line x1="80" y1="360" x2="680" y2="360" stroke="#888" stroke-width="1.5"/>
+  <line x1="80" y1="40"  x2="80"  y2="360" stroke="#888" stroke-width="1.5"/>
+
+  <!-- x labels: operand width W (product bits) -->
+  <g font-size="11" fill="#444" text-anchor="middle">
+    <text x="80"  y="378">4</text>
+    <text x="180" y="378">6</text>
+    <text x="280" y="378">8</text>
+    <text x="380" y="378">10</text>
+    <text x="480" y="378">12</text>
+    <text x="580" y="378">14</text>
+    <text x="680" y="378">16</text>
+  </g>
+  <text x="380" y="400" font-size="13" fill="#444" text-anchor="middle">operand width W  (product = 2·W bits)</text>
+
+  <!-- ORIGINAL: climbs and hits the timeout ceiling at W=8 -->
+  <polyline points="80,280 180,181 280,58" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <polyline points="280,58 380,58 480,58 580,58 680,58" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="4 4"/>
+  <g fill="#c0392b">
+    <circle cx="80" cy="280" r="4"/>
+    <circle cx="180" cy="181" r="4"/>
+  </g>
+  <!-- timeout markers (x) for W=8..16 -->
+  <g stroke="#c0392b" stroke-width="2">
+    <g transform="translate(280,58)"><line x1="-4" y1="-4" x2="4" y2="4"/><line x1="-4" y1="4" x2="4" y2="-4"/></g>
+    <g transform="translate(380,58)"><line x1="-4" y1="-4" x2="4" y2="4"/><line x1="-4" y1="4" x2="4" y2="-4"/></g>
+    <g transform="translate(480,58)"><line x1="-4" y1="-4" x2="4" y2="4"/><line x1="-4" y1="4" x2="4" y2="-4"/></g>
+    <g transform="translate(580,58)"><line x1="-4" y1="-4" x2="4" y2="4"/><line x1="-4" y1="4" x2="4" y2="-4"/></g>
+    <g transform="translate(680,58)"><line x1="-4" y1="-4" x2="4" y2="4"/><line x1="-4" y1="4" x2="4" y2="-4"/></g>
+  </g>
+
+  <!-- ABSTRACTED: flat, near the bottom -->
+  <polyline points="80,301 180,300 280,295 380,287 480,282 580,276 680,269"
+            fill="none" stroke="#2980b9" stroke-width="2.5"/>
+  <g fill="#2980b9">
+    <circle cx="80" cy="301" r="4"/>
+    <circle cx="180" cy="300" r="4"/>
+    <circle cx="280" cy="295" r="4"/>
+    <circle cx="380" cy="287" r="4"/>
+    <circle cx="480" cy="282" r="4"/>
+    <circle cx="580" cy="276" r="4"/>
+    <circle cx="680" cy="269" r="4"/>
+  </g>
+
+  <!-- legend -->
+  <g font-size="12">
+    <rect x="100" y="416" width="14" height="3" fill="#c0392b"/>
+    <text x="120" y="420" fill="#444">original (times out at W≥8)</text>
+    <rect x="330" y="416" width="14" height="3" fill="#2980b9"/>
+    <text x="350" y="420" fill="#444">abstracted (free prod) — stays flat</text>
+  </g>
+</svg>

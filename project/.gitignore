@@ -1,0 +1,21 @@
+# ---- secrets: never commit (guardrail, CLAUDE.md §11) ----
+.env
+.env.local
+*.key
+
+# ---- python ----
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# ---- transient gv run logs ----
+*.log
+runs/
+
+# ---- re-include project artifacts that the ROOT .gitignore would otherwise
+#      swallow (it ignores *.v / *.txt / *.json anywhere). These ARE the
+#      committed, cached deliverables and must be tracked. ----
+!designs/*.v
+!abstracted/*.v
+!*.txt

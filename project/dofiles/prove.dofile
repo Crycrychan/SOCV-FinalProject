@@ -1,0 +1,7 @@
+// Prove: run gv's strongest engine (abc PDR / IC3) on the ABSTRACTED design.
+// Expected: PROVED (Disproved = 0) almost instantly -- the multiplier was freed
+// out of the property's cone of influence.
+cirread -v ./project/abstracted/gatedmult.v
+se sys vrf
+pdr -o 0
+q -f

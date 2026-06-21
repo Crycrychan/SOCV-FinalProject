@@ -1,0 +1,7 @@
+// Baseline: run gv's strongest engine (abc PDR / IC3) on the ORIGINAL design.
+// Expected: TIMEOUT (the multiplier self-check makes the property unprovable in
+// the time budget).  run.sh wraps this with a hard timeout.
+cirread -v ./project/designs/gatedmult.v
+se sys vrf
+pdr -o 0
+q -f

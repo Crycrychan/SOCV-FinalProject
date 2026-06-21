@@ -1,0 +1,12 @@
+// Engine sweep: BDD-based proof on the ORIGINAL design.
+// Expected: TIMEOUT -- BDD construction (bcons) explodes on the 16x16 multiplier.
+cirread -v ./project/designs/gatedmult.v
+breset 2000 8009 30011
+bsetorder -file
+bcons -all
+set system vrf
+pinit init
+ptrans tri tr
+pimage -n 100
+pcheckp -o 0
+q -f
