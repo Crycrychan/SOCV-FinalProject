@@ -7,8 +7,7 @@
 
 ## 0. Group Members & How to Run
 
-### Group Members
-
+### Group 26
 | Name | Email | Contact |
 |---|---|---|
 | 周世恩 | r14943149@ntu.edu.tw | 0987113661 |
@@ -430,7 +429,7 @@ is never reported here as a proof.
 
 ## 9. Demo Video
 
-*(Link to be added after recording.)*
+[Demo Video](https://youtu.be/VX8yC-lNdzA)
 
 ---
 
